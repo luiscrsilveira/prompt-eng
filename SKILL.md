@@ -56,6 +56,12 @@ If two rows tie → combine (e.g. RAG + CoT).
 5. **Apply model-specific tweaks.** See `references/model-specifics.md`.
 6. **Validate.** Run checklist below. If fail, revise.
 7. **Deliver.** Output the final prompt in a code block, plus a 2-3 line rationale (which technique, why).
+8. **Offer next action.** After delivery, ask via AskUserQuestion:
+   - Question: "O que deseja fazer com o prompt?"
+   - Options:
+     - "Utilizar agora" → execute the delivered prompt as the next instruction and return its output.
+     - "Salvar em arquivo" → write to markdown file. Suggest filename prefixed with `prompt-` (e.g. `prompt-<short-task-slug>.md`), derived from task_type/domain. Confirm/adjust name with user, then Write file in current working directory.
+     - "Nenhum" → end.
 
 ## Validation Checklist
 
