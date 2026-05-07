@@ -18,15 +18,37 @@ Given a task description, the skill:
 
 ## Install
 
-### Claude Code
-Place the `prompt-eng/` directory under your skills root, e.g.:
+### Quick install (npx)
+
+User scope (`~/.claude/skills/prompt-eng/`):
 ```bash
-~/.claude/skills/prompt-eng/
+npx github:luiscrsilveira/prompt-eng
 ```
-or, project-scoped:
+
+Project scope (`./.claude/skills/prompt-eng/`):
 ```bash
-.claude/skills/prompt-eng/
+npx github:luiscrsilveira/prompt-eng --scope=project
 ```
+
+Custom path:
+```bash
+npx github:luiscrsilveira/prompt-eng --dest=/path/to/skills/prompt-eng
+```
+
+Flags: `--force` overwrite without prompt, `--dry-run` preview only.
+
+Once published to npm:
+```bash
+npx prompt-eng-skill
+```
+
+### Manual install
+
+Clone or copy the directory to your skills root:
+```bash
+git clone https://github.com/luiscrsilveira/prompt-eng ~/.claude/skills/prompt-eng
+```
+Project-scoped: clone into `./.claude/skills/prompt-eng`.
 
 ### Claude.ai
 Upload the directory as a Skill via the Skills UI.

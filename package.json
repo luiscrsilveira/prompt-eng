@@ -1,0 +1,42 @@
+{
+  "name": "prompt-eng-skill",
+  "version": "0.1.0",
+  "description": "Claude Skill for systematic prompt engineering, based on the DAIR.AI guide",
+  "bin": {
+    "prompt-eng-skill": "bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "SKILL.md",
+    "references/",
+    "templates/",
+    "examples/",
+    "scripts/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node bin/install.js --dry-run --scope=user"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skill",
+    "prompt-engineering",
+    "llm",
+    "dair-ai"
+  ],
+  "author": "luiscrsilveira",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luiscrsilveira/prompt-eng.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luiscrsilveira/prompt-eng/issues"
+  },
+  "homepage": "https://github.com/luiscrsilveira/prompt-eng#readme",
+  "engines": {
+    "node": ">=16"
+  }
+}
