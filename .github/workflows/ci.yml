@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Lint recommend.py
+        run: python3 -m py_compile scripts/recommend.py
+
+      - name: Smoke-test recommender
+        run: |
+          out=$(python3 scripts/recommend.py --task reasoning --complexity complex)
+          echo "$out"
+          echo "$out" | grep -q "chain-of-thought"
+          echo "$out" | grep -q "self-consistency"
+
+      - name: Check SKILL.md length (<500 lines)
+        run: |
+          lines=$(wc -l < SKILL.md)
+          echo "SKILL.md has $lines lines"
+          test "$lines" -lt 500
+
+      - name: Check required files
+        run: |
+          test -f SKILL.md
+          test -f README.md
+          test -f LICENSE
+          test -d references
+          test -d templates
+          test -d examples
